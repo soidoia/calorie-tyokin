@@ -8,6 +8,7 @@
     <body>
        <h1 class="title">編集画面</h1>
        <div class="content">
+           
            <form action="/posts/{{ $post->id }}" method="POST">
                @csrf
                @method('PUT')
