@@ -8,9 +8,8 @@
         
     </head>
     <body>
-        <h1>カロリー貯金箱</h1>
+        <h1>CalorieBnak</h1>
         <a href='/posts/create'>入力画面</a>
-        
         <div class='posts'>
             @foreach ($posts as $post)
                 <div class='post'>
@@ -24,7 +23,6 @@
                         @method('DELETE')
                         <button type="button" onclick="deletePost({{ $post->id }})">delete</button>
                     </form>
-                    <a href="">{{ $post->meal->name }}</a>
                 </div>
             @endforeach    
         </div>

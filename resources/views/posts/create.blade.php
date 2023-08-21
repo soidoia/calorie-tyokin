@@ -5,16 +5,16 @@
         <title>Calo-Bank</title>
    </head>
     <body>
-        <h1>CalorieBnak</h1>
+        <h1>カロリー貯金箱</h1>
        <form action="/posts" method="POST">
            @csrf
-           <div class="title">
-               <h2>食品</h2>
-               <input type="text" name="post[title]" placeholder="ごはん"/>
-           </div>
-           <div class="body">
-               <h2>カロリー</h2>
-               <textarea name="post[body]" placeholder="200kcal"></textarea>
+           <div class="meal">
+               <h2>食品名</h2>
+               <select name="post[meal_id]">
+                    @foreach($meals as $meal)
+                        <option value="{{ $meal->id }}">{{ $meal->name }}</option>
+                    @endforeach                
+               </select>
            </div>
            <input type="submit" value="保存"/> 
        </form>

@@ -14,11 +14,16 @@ class Post extends Model
     protected $fillable = [
         'title',
         'body' ,
+        'meal_id'
         ];
 
     public function getByLimit(int $limit_count =20)
     {
-        return $this->orderBy('updated_at', 'DESC')->limit($limit_count)->get();
+        return $this::with('meal')->orderBy('updated_at', 'DESC')->limit($limit_count);
+    }
+    public function meal()
+    {
+        return $this->belongsTo(Meal::class);
     }
     
 }

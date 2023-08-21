@@ -11,9 +11,10 @@
         <h1　class="title">
             {{ $post->title }}
         </h1>
+        <a href="">{{ $post->meal->name }}</a>
         <div class="content">
             <div class="content__post">
-                <h3>食品</h3>
+                <h3>食品名</h3>
                 <P>{{ $post->body }}</P>
             </div>
         </div>
