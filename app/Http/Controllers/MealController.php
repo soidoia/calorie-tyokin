@@ -9,7 +9,7 @@ class MealController extends Controller
 {
     
 }
-publuc function index(Meal $meal)
+public function index(Meal $meal)
 {
     return view('meals.index')->with(['posts' => $meal->getByMeal()]);
 }
