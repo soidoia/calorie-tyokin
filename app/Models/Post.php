@@ -21,9 +21,9 @@ class Post extends Model
     {
         return $this::with('meal')->orderBy('updated_at', 'DESC')->limit($limit_count);
     }
-    public function meal()
+    public function meals()
     {
-        return $this->belongsTo(Meal::class);
+        return $this->belongsToMany(Meal::class);
     }
     
 }
