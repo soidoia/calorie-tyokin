@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('meals', function (Blueprint $table) {
-            $table->id();
-            $table->string('meal-name');
-            $table->string('calories');
-            $table->timestamps(); //追加した項目
-            
-            
-            
+        Schema::table('meals', function (Blueprint $table) {
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            //'user_id''はusers'テーブルの'id' を参照する外部キーです
         });
     }
 
@@ -31,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('meals');
+        Schema::table('meals', function (Blueprint $table) {
+            //
+        });
     }
 };

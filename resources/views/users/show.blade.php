@@ -3,23 +3,23 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Posts</title>
+        <title>User</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
         <h1　class="title">
-            {{ $post->title }}
+            {{ $user->title }}
         </h1>
-        <a href="">{{ $post->meal->name }}</a>
+        <a href="">{{ $user->meal->name }}</a>
         <div class="content">
-            <div class="content__post">
+            <div class="content__user">
                 <h3>食品名</h3>
-                <P>{{ $post->body }}</P>
+                <P>{{ $user->body }}</P>
             </div>
         </div>
         <div class="edit">
-            <a href="/posts/{{ $post->id }}/edit">編集</a></div>
+            <a href="/users/{{ $user->id }}/edit">編集</a></div>
         <div class="footer">
             <a href="/">戻る</a>
         </div>

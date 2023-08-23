@@ -9,27 +9,27 @@
     </head>
     <body>
         <h1>カロリー貯金箱</h1>
-        <a href='/posts/create'>入力画面</a>
+        <a href='/users/create'>入力画面</a>
         
-        <div class='posts'>
-            @foreach ($posts as $post)
-                <div class='post'>
+        <div class='users'>
+            @foreach ($users as $user)
+                <div class='user'>
                     <h2 class='title'>
-                        <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
+                        <a href="/users/{{ $user->id }}">{{ $user->title }}</a>
                     </h2>
-                    <p class='body'>{{ $post->body }}</p>
+                    <p class='body'>{{ $user->body }}</p>
                     <!-- 以下を追記 -->
-                    <form action="/posts/{{ $post->id }}" id=for,_{{ $post->id }}" method="post">
+                    <form action="/users/{{ $user->id }}" id=for,_{{ $user->id }}" method="user">
                         @csrf
                         @method('DELETE')
-                        <button type="button" onclick="deletePost({{ $post->id }})">delete</button>
+                        <button type="button" onclick="deleteUser({{ $user->id }})">delete</button>
                     </form>
-                    <a href="">{{ $post->meal->name }}</a>
+                    <a href="">{{ $user->meal->name }}</a>
                 </div>
             @endforeach    
         </div>
     <script>
-        function deletePost(id) {
+        function deleteUser(id) {
             'use strict'
             
             if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
