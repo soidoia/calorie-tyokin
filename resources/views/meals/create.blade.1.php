@@ -6,12 +6,21 @@
     <link href="https//fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <style>
         /* スタイル */
+        body {
+            background-color: #FFC0CB;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
         .add-button,
         .delete-button {
             font-size: 16px;
             background-color: transparent;
             border: none;
             cursor: pointer;
+            
         }
 
         .food-item {
@@ -21,7 +30,7 @@
         }
 
         .food-item input {
-            margin-right: 10px;
+            mergin-bottom: 20px;
         }
 
         .delete-button {
@@ -52,7 +61,7 @@
                 const deleteButton = document.createElement("button");
                 deleteButton.type = "button";
                 deleteButton.className = "delete-button";
-                deleteButton.textContent = "削除";
+                deleteButton.textContent = "⊖"
 
                 deleteButton.addEventListener("click", function() {
                     foodItemsContainer.removeChild(foodItemDiv);
@@ -72,25 +81,27 @@
             const foodItemsContainer = document.getElementById("food-items-container");
             foodItemsContainer.removeChild(foodItemDiv);
         }
-    </script>
+    <script>
 </head>
 <body>
     <!-- HTMLのコンテンツ -->
     <h1>カロリー貯金箱</h1>
-    <form action="/users" method="USER">
+    <form action="/meals" method="POST">
         @csrf
-        <div id="food-items-container" class="food-items">
+        <div id="food-items-container">
             <div class="food-item">
                 <h2>食品名</h2>
-                <input type="text" name="foods[]" placeholder="食品名">
+                <input type="text" name="meal[name]" placeholder="ごはん">
                 <h2>カロリー</h2>
-                <input type="text" name="calories[]" placeholder="カロリー">
-                <button type="button" class="delete-button" onclick="deleteFoodItem(this)">⊖</button>
+                <input type="text" name="meal[calories]" placeholder="カロリー">
+                
             </div>
         </div>
-        <button type="button" class="add-button" onclick="addFoodItem()">⊕ 追加</button>
-        <input type="submit" value="保存/">
+       
+        <input type="submit" value="保存">
     </form>
+    <button type="button" class="delete-button" onclick="deleteFoodItem(this)">⊖(削除)</button>
+     <button type="button" class="add-button" onclick="addFoodItem()">⊕(追加)</button>
     <div class="footer">
         <a href="/">戻る</a>
     </div>
