@@ -9,17 +9,17 @@
     </head>
     <body>
         <h1　class="title">
-            {{ $user->title }}
+            {{ $meal->title }}
         </h1>
-        <a href="">{{ $user->meal->name }}</a>
+        <a href="">{{ $meal->user->name }}</a>
         <div class="content">
-            <div class="content__user">
+            <div class="content__meal">
                 <h3>食品名</h3>
-                <P>{{ $user->body }}</P>
+                <P>{{ $meal->body }}</P>
             </div>
         </div>
         <div class="edit">
-            <a href="/users/{{ $user->id }}/edit">編集</a></div>
+            <a href="/meals/{{ $meal->id }}/edit">編集</a></div>
         <div class="footer">
             <a href="/">戻る</a>
         </div>

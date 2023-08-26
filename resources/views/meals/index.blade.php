@@ -8,30 +8,32 @@
         
     </head>
     <body>
-        <h1>CalorieBnak</h1>
-        <a href='/posts/create'>入力画面</a>
-        <div class='posts'>
-            @foreach ($posts as $post)
-                <div class='post'>
-                    <h2 class='title'>
-                        <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
+        <h1>カロリー貯金箱</h1>
+        <a href='/meals/create'>新規作成</a>
+        
+        <div class='meals'>
+            @foreach ($meals as $meal)
+                <div class='meal'>
+                    <h2 class='name'>
+                        <a href="/meals/{{ $meal->id }}">{{ $meal->name }}</a>
                     </h2>
-                    <p class='body'>{{ $post->body }}</p>
+                    <p class='body'>{{ $meal->calories }}</p>
                     <!-- 以下を追記 -->
-                    <form action="/posts/{{ $post->id }}" id=for,_{{ $post->id }}" method="post">
+                    <form action="/meals/{{ $meal->id }}" id="form_{{ $meal->id }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="button" onclick="deletePost({{ $post->id }})">delete</button>
+                        <button type="button" onclick="deleteUser({{ $meal->id }})">delete</button>
                     </form>
+                    <a href="/meals/{{ $meal->id }}/edit">編集画面</a>
                 </div>
             @endforeach    
         </div>
     <script>
-        function deletePost(id) {
+        function deleteUser(id) {
             'use strict'
             
             if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
-                document.getElementByID('form_${id}').submit();
+                document.getElementById('form_${id}').submit();
             }
         }
     </script>
