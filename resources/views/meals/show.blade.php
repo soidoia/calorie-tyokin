@@ -8,14 +8,14 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1　class="title">
-            {{ $meal->title }}
+        <h1　class="name">
+            {{ $meal->name }}
         </h1>
         <a href="">{{ $meal->user->name }}</a>
         <div class="content">
             <div class="content__meal">
                 <h3>食品名</h3>
-                <P>{{ $meal->body }}</P>
+                <P>{{ $meal->calories }}</P>
             </div>
         </div>
         <div class="edit">

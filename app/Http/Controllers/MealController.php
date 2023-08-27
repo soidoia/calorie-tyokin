@@ -7,12 +7,25 @@ use App\Models\Meal;
 
 
 
+
 class MealController extends Controller
 {
     
     public function index(Meal $meal)
     {
-        return view('meals.index')->with(['meals' => auth()->user()->meals]);
+       
+        
+        $result = \DB::table('meals')
+                ->select('user_id')
+                ->selectRaw('SUM(calories) AS total_calories')
+                ->groupBy('user_id')
+                ->get();
+                
+         $meals = auth()->user()->meals;        
+        
+        return view('meals.index')->with(['result' =>  $result ,'meals' => $meals]);
+        
+        
     }
     public function show(Meal $meal)
     {
@@ -46,4 +59,5 @@ class MealController extends Controller
         return redirect('/');
     }
     
+  
 }

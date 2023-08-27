@@ -11,6 +11,7 @@
         <h1>カロリー貯金箱</h1>
         <a href='/meals/create'>新規作成</a>
         
+        
         <div class='meals'>
             @foreach ($meals as $meal)
                 <div class='meal'>
@@ -22,12 +23,31 @@
                     <form action="/meals/{{ $meal->id }}" id="form_{{ $meal->id }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="button" onclick="deleteUser({{ $meal->id }})">delete</button>
+                        <button type="button" onclick="deleteUser({{ $meal->id }})">削除</button>
                     </form>
                     <a href="/meals/{{ $meal->id }}/edit">編集画面</a>
                 </div>
             @endforeach    
         </div>
+        
+<table>
+    <thead>
+      <tr>
+        
+        <th>合計カロリー</th>
+      </tr>
+    </thead>
+    <tbody>
+    @foreach ($result as $val)
+      <tr>
+        
+        <td>{{ $val->total_calories }}</td>
+      </tr>
+    @endforeach
+    </tbody>
+</table>
+
+
     <script>
         function deleteUser(id) {
             'use strict'
@@ -37,5 +57,7 @@
             }
         }
     </script>
+    
+
     </body>
 </html>
