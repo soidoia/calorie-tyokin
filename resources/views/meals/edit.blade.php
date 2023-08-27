@@ -14,14 +14,17 @@
                @method('PUT')
                <div class='content__title'>
                    <h2>食品名</h2>
-                   <input type="text" name='meal[title]' value="{{ $meal->title }}">
+                   <input type="text" name='meal[name]' value="{{ $meal->name }}">
                </div>
                <div class='content__body'>
                    <h2>カロリー</h2>
-                   <input type='text' name='meal[body]' value="{{ $meal->body }}">
+                   <input type='text' name='meal[calories]' value="{{ $meal->calories }}">
                </div>
-               <input type="submit" value="update">
+               <input type="submit" value="更新">
            </form>
+    <div class="footer">
+        <a href="/">戻る</a>
+    </div>
        </div>
     </body>
 </html>
