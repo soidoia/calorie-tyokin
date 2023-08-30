@@ -13,7 +13,7 @@
         @csrf
         <div id="food-items-container">
             <div class="food-item">
-                <h2>食品名</h2>
+                <h2>フード</h2>
                 <input type="text" name="meal[name]" placeholder="ごはん">
                 <h2>カロリー</h2>
                 <input type="text" name="meal[calories]" placeholder="カロリー">
