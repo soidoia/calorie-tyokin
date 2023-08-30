@@ -9,32 +9,37 @@
     </head>
     <body>
         <h1>カロリー貯金箱</h1>
-        <a href='/meals/create'>新規作成</a>
+        <a href='/meals/create'>追加</a>
         
         
         <div class='meals'>
-            @foreach ($meals as $meal)
+            @foreach ($mealsByDate as $date => $mealsForDate)
+                <h2>{{ $date }}</h2>
+                @foreach ($mealsForDate as $meal)
                 <div class='meal'>
                     <h2 class='name'>
-                        <a href="/meals/{{ $meal->id }}">{{ $meal->name }}</a>
+                        {{ $meal->name }}
                     </h2>
-                    <p class='body'>{{ $meal->calories }}</p>
+                    <h3 class="calories">
+                        {{ $meal->calories }}cal
+                    </h3>
                     <!-- 以下を追記 -->
                     <form action="/meals/{{ $meal->id }}" id="form_{{ $meal->id }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="button" onclick="deleteUser({{ $meal->id }})">削除</button>
                     </form>
-                    <a href="/meals/{{ $meal->id }}/edit">編集画面</a>
+                    <a href="/meals/{{ $meal->id }}/edit">編集</a>
                 </div>
-            @endforeach    
+            @endforeach  
+        @endforeach
         </div>
         
 <table>
     <thead>
       <tr>
         
-        <th>合計カロリー</th>
+        <th>合計cal</th>
       </tr>
     </thead>
     <tbody>

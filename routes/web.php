@@ -23,7 +23,6 @@ Route::controller(MealController::class)->middleware(['auth'])->group(function()
     Route::get('/', 'index')->name('index');
     Route::post('/meals', 'store')->name('store');
     Route::get('/meals/create', 'create')->name('create');
-    Route::get('/meals/{meal}', 'show')->name('show');
     Route::put('/meals/{meal}', 'update')->name('update');
     Route::delete('/meals/{meal}', 'delete')->name('delete');
     Route::get('/meals/{meal}/edit', 'edit')->name('edit');

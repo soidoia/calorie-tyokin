@@ -21,15 +21,13 @@ class MealController extends Controller
                 ->groupBy('user_id')
                 ->get();
                 
-         $meals = auth()->user()->meals;        
+         $mealsByDate = auth()->user()->meals->groupBy(function($date) {
+                return $date->created_at->format('Y-m-d');
+            });
+                
+        return view('meals.index')->with(['result' =>  $result ,'mealsByDate' => $mealsByDate]);
         
-        return view('meals.index')->with(['result' =>  $result ,'meals' => $meals]);
         
-        
-    }
-    public function show(Meal $meal)
-    {
-        return view('meals.show')->with(['meal' => $meal]);
     }
     public function create(Meal $meal)
     {

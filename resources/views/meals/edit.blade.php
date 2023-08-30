@@ -6,14 +6,14 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
    </head>
     <body>
-       <h1 class="title">編集画面</h1>
+       <h1 class="title">編集</h1>
        <div class="content">
            
            <form action="/meals/{{ $meal->id }}" method="POST">
                @csrf
                @method('PUT')
                <div class='content__title'>
-                   <h2>食品名</h2>
+                   <h2>フード</h2>
                    <input type="text" name='meal[name]' value="{{ $meal->name }}">
                </div>
                <div class='content__body'>
