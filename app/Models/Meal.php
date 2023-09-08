@@ -14,7 +14,7 @@ class Meal extends Model
     protected $fillable = [
         'name',
         'calories' ,
-        'user_id'
+        'user_id',
         ];
 
     public function getByLimit(int $limit_count =20)

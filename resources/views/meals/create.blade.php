@@ -16,7 +16,7 @@
                 <h2>フード</h2>
                 <input type="text" name="meal[name]" placeholder="ごはん">
                 <h2>カロリー</h2>
-                <input type="text" name="meal[calories]" placeholder="カロリー">
+                <input type="text" name="meal[calories]" placeholder="150">
                 
                 
             </div>
