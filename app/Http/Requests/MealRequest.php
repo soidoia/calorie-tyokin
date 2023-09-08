@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class MealRequest extends FormRequest
 {
@@ -25,7 +26,8 @@ class MealRequest extends FormRequest
     {
         return [
             'meal.name' => 'required|string|max:30',
-            'meal.calories' => 'required|string|max:30',
-        ];
+            'meal.calories' => 'required|integer',
+            ];
+                
     }
 }
