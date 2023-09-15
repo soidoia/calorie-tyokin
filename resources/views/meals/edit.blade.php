@@ -2,8 +2,9 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>Calo-Bank</title>
+        <title>eating-edit</title>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
    </head>
     <body>
        <h1 class="title">編集</h1>
@@ -13,12 +14,12 @@
                @csrf
                @method('PUT')
                <div class='content__title'>
-                   <h2>フード</h2>
+                   <h2>meal</h2>
                    <input type="text" name='meal[name]' value="{{ $meal->name }}">
                </div>
                <div class='content__body'>
-                   <h2>カロリー</h2>
-                   <input type='text' name='meal[calories]' value="{{ $meal->calories }}">
+                   <h2>point</h2>
+                   <input type='text' name='meal[review]' value="{{ $meal->review }}">
                </div>
                <input type="submit" value="更新">
            </form>

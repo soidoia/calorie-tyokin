@@ -2,27 +2,19 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <title>Calo-Bank</title>
-    
-   
+    <title>eating-create</title>
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 </head>
 <body>
     <!-- HTMLのコンテンツ -->
-    <h1>カロリー貯金箱</h1>
+    <h1>グルメ採点</h1>
     <form action="/meals" method="POST">
         @csrf
-        <div id="food-items-container">
-            <div class="food-item">
-                <h2>フード</h2>
-                <input type="text" name="meal[name]" placeholder="ごはん">
-                <h2>カロリー</h2>
-                <input type="text" name="meal[calories]" placeholder="150">
                 
-                
-            </div>
-        </div>
-       
-        <input type="submit" value="保存">
+                <input type="text" name="meal[name]" placeholder="とんかつ">
+                <input type="text" name="meal[review]" placeholder="20">
+                <span class="point-text">point</span>
+                <button type="submit">採点</button>
     </form>
    
     <div class="footer">

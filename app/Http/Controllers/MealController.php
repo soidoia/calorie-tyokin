@@ -15,23 +15,14 @@ class MealController extends Controller
     {
     
     $date = $request->input('date')? $request->input('date'):Carbon::today();
-    //$result = \DB::table('meals')
-           // ->select('user_id')
-            //->whereDate('created_at', $date)
-            //->selectRaw('IFNULL(SUM(calories),0) AS total_calories')
-            //->groupBy('user_id')
-            //->get();
     $result = $meal->where('user_id',auth()->user()->id)
                 ->whereDate('created_at', $date)
-                ->sum('calories');
+                ->sum('review');
     
-            
     $meals = auth()->user()->meals()->whereDate('created_at', $date)->get();
-    
-    $dailyGoal = auth()->user()->daily_goal;
         
         
-        return view('meals.index')->with(['result' => $result, 'meals' => $meals, 'dailyGoal' =>$dailyGoal,]);
+        return view('meals.index')->with(['result' => $result, 'meals' => $meals]);
     }
     public function create(Meal $meal)
     {
@@ -39,6 +30,7 @@ class MealController extends Controller
     }
     public function store(Meal $meal, MealRequest $request)
     {
+        
         $input = $request['meal'];
         $input['user_id']=auth()->user()->id;
         $meal->fill($input)->save();
