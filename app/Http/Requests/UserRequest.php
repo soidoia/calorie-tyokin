@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class MealRequest extends FormRequest
+class UserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,9 +24,7 @@ class MealRequest extends FormRequest
     public function rules()
     {
         return [
-            'meal.name' => 'required|string|max:30',
-            'meal.review' => 'required|integer',
-            ];
-                
+            'goal' => 'required|integer',
+        ];
     }
 }

@@ -13,7 +13,7 @@ class Meal extends Model
     
     protected $fillable = [
         'name',
-        'calories' ,
+        'review' ,
         'user_id',
         ];
 

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MealController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::post('/set-goal', [UserController::class,'setGoal'])->name('setGoal');
+Route::get('/get-goal', [UserController::class,'getGoal'])->name('getGoal');
+
 Route::controller(MealController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'index')->name('index');
     Route::post('/meals', 'store')->name('store');
@@ -27,6 +31,8 @@ Route::controller(MealController::class)->middleware(['auth'])->group(function()
     Route::delete('/meals/{meal}', 'delete')->name('delete');
     Route::get('/meals/{meal}/edit', 'edit')->name('edit');
 });
+
+
 
 Route::get('/meals/{meal}' ,[MealController::class, 'index'])->middleware("auth");
 
