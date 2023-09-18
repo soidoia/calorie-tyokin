@@ -17,7 +17,7 @@ class MealController extends Controller
     $date = $request->input('date')? $request->input('date'):Carbon::today();
     $result = $meal->where('user_id',auth()->user()->id)
                 ->whereDate('created_at', $date)
-                ->sum('review');
+                ->sum('calorie');
     
     $meals = auth()->user()->meals()->whereDate('created_at', $date)->get();
         
