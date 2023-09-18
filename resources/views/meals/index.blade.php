@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <title>happy-eating</title>
+    <title>calo-bank</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     
     <style>
@@ -81,15 +81,15 @@
 </head>
 <body>
     <div class="container">
-    <div class="title">グルメポイントを貯めよう!!!!</div>
-    <h1>グルメ貯金箱</h1>
-    <h2>グルメ目標: {{ session('goal') }}point</h2>
+    <div class="title">カロリーを貯めよう!!!!</div>
+    <h1>カロリー貯金箱</h1>
+    <h2>目標: {{ session('goal') }}kcal</h2>
     
     <div class="dailygoal">
     <form action="{{ route('setGoal') }}" method="POST">
         @csrf
-            <input type="text" name="goal" placeholder="100">
-            <span class="point-goal">point</span>
+            <input type="text" name="goal" placeholder="2000">
+            <span class="calo-goal">kcal</span>
             <button type="submit">目標設定</button>
     </form>
         <div class="calender">
@@ -106,7 +106,7 @@
     @foreach ($meals as $meal)
         <div class='meal'>
             <p class='data'>
-                {{ $meal->name }}　{{ $meal->review }} point
+                {{ $meal->name }}　{{ $meal->calorie }} kcal
             </p>
             <form action="/meals/{{ $meal->id }}" id="form_{{ $meal->id }}" method="POST">
                 @csrf
@@ -128,7 +128,7 @@
            
                 <tr>
                     <td class="total">
-                        <span class="total-number">{{ $result }}point</span>
+                        <span class="total-number">{{ $result }}kcal</span>
                     </td>
                 </tr>
             
