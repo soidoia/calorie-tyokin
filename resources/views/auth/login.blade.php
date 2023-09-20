@@ -46,13 +46,10 @@
             </x-primary-button>
         </div>
     </form>
-    
-</x-guest-layout>
-          <div class="flex justify-center">
-    <x-primary-button>
-        <a href="{{ route('line.login') }}" style="background-color: #00c300; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: flex; align-items: center;">
-            <img src="{{ asset('path/to/line-icon.png') }}" alt="Line Icon" style="width: 30px; height: 30px; margin-right: 10px;">
+        <div class="mt-4">
+        <a href="{{ route('line.login') }}" style="background-color: #00c300; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: flex; align-items: center; justify-content: center;">
             Lineでログイン
         </a>
-    </x-primary-button>
-</div>
+        </div>
+</x-guest-layout>
+           
