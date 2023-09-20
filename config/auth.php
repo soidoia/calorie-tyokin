@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+    
+    'auth0-session' => [
+        'driver' => 'session',
+        'provider' => 'users',
+        ],    
     ],
 
     /*
