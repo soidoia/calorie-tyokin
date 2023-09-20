@@ -3,7 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MealController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LineLoginController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,10 +17,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('auth/line', function () {
+    return Socialite::driver('line')->redirect();
+})->name('line.login');
+
+Route::get('auth/line/callback', function () {
+    $user = Socialite::driver('line')->user();
+});
 
 Route::post('/set-goal', [UserController::class,'setGoal'])->name('setGoal');
 Route::get('/get-goal', [UserController::class,'getGoal'])->name('getGoal');
