@@ -106,7 +106,7 @@
     @foreach ($meals as $meal)
         <div class='meal'>
             <p class='data'>
-                {{ $meal->name }}　{{ $meal->calorie }} kcal
+                {{ $meal->name }}　{{ $meal->calo }} kcal
             </p>
             <form action="/meals/{{ $meal->id }}" id="form_{{ $meal->id }}" method="POST">
                 @csrf
