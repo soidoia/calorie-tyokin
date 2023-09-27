@@ -12,7 +12,7 @@
         @csrf
                 
                 <input type="text" name="meal[name]" placeholder="とんかつ定食">
-                <input type="text" name="meal[calorie]" placeholder="700">
+                <input type="text" name="meal[calo]" placeholder="700">
                 <span class="point-text">kcal</span>
                 <button type="submit">追加</button>
     </form>

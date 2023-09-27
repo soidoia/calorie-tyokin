@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Meal extends Model
+class Post extends Model
 {
     use HasFactory;
     use SoftDeletes;
     
     protected $fillable = [
-        'name',
-        'calo' ,
-        'user_id',
+        'title',
+        'body' ,
+        'meal_id'
         ];
 
     public function getByLimit(int $limit_count =20)

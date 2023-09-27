@@ -19,7 +19,7 @@
                </div>
                <div class='content__body'>
                    <h2>kcal</h2>
-                   <input type='text' name='meal[calorie]' value="{{ $meal->calorie }}">
+                   <input type='text' name='meal[calo]' value="{{ $meal->calo }}">
                </div>
                <input type="submit" value="更新">
            </form>

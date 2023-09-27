@@ -26,7 +26,7 @@ class MealRequest extends FormRequest
     {
         return [
             'meal.name' => 'required|string|max:30',
-            'meal.calorie' => 'required|integer',
+            'meal.calo' => 'required|integer',
             ];
                 
     }
