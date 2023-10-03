@@ -33,13 +33,7 @@
             color: #333;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-        .navbar {
-            text-align: center;
-        }
-        .navbar a {
-            text-decoration: none;
-            margin-right: 20px;
-        }
+        
         .meals {
             margin-top: 20px;
             display: flex;

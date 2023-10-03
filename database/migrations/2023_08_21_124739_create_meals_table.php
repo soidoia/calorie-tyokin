@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('meals', function (Blueprint $table) {
             $table->id();
-            $table->string('meal-name');
-            $table->string('calories');
+            $table->string('name');
+            $table->string('calo');
             $table->timestamps(); //追加した項目
             
             
